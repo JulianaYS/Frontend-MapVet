@@ -5,7 +5,7 @@
   <main>
     <!--/.Hero Section-->
     <section id="hero" class="hero">
-      <div class="background-image" style="background-image: url(img/unknown.png)" role="img"
+      <div class="background-image" style="background-image: url(https://i.ibb.co/MRZQYMr/unknown.png)" role="img"
            aria-label="Un hurón representando a las mascotas peculiares"></div>
       <h1>Cuida a tu mejor amigo</h1>
       <h3>Dandole lo mejor</h3>
@@ -20,13 +20,13 @@
       <hr>
 
       <ul class="grid">
-        <li class="small" style="background-image: url(img/huron7.jpg);" role="img"
+        <li class="small" style="background-image: url(https://i.ibb.co/4jkJxMX/huron7.jpg);" role="img"
             aria-label="Hurona siendo alimentada"></li>
-        <li class="large" style="background-image: url(img/erizo.jpg);" role="img"
+        <li class="large" style="background-image: url(https://i.ibb.co/KsSTgbP/erizo.jpg);" role="img"
             aria-label="Erizo jugando"></li>
-        <li class="large" style="background-image: url(img/serpe.jpg);" role="img"
+        <li class="large" style="background-image: url(https://i.ibb.co/NVSkQGy/serpe.jpg);" role="img"
             aria-label="Serpiente jugando"></li>
-        <li class="small" style="background-image: url(img/cuy.jpg);" role="img"
+        <li class="small" style="background-image: url(https://i.ibb.co/pzdRb98/cuy.jpg);" role="img"
             aria-label="Cuy bañandose"></li>
       </ul>
     </section>
@@ -39,17 +39,17 @@
 
       <ul class="grid">
         <li>
-          <img src="img/Nariz.png" width="100"  alt="Icono nariz de perrito">
+          <img src="https://i.ibb.co/3zMVjtd/Nariz.png" width="100"  alt="Icono nariz de perrito">
           <h4>Informate</h4>
           <p>sobre el cuidado adecuado para tu mascota con relación a la alimentación, higiene, ambiente y ciclo sexual.</p>
         </li>
         <li>
-          <img src="img/Calendario.png" width="100" alt="Icono calendario">
+          <img src="https://i.ibb.co/1sNfH0w/Calendario.png" width="100" alt="Icono calendario">
           <h4>Registra</h4>
           <p>una cita que realizarás para el chequeo preventivo de tu mascota.</p>
         </li>
         <li>
-          <img src="img/Veterinario.png" width="100" alt="Icono veterinaria">
+          <img src="https://i.ibb.co/NL9yPP7/Veterinario.png" width="100" alt="Icono veterinaria">
           <h4>Busca </h4>
           <p>veterinarias especializadas para el cuidado de tu mascota.</p>
         </li>
