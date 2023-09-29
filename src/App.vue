@@ -1,85 +1,70 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
+<script>
+
+export default {
+  name: "app",
+  data() {
+    return {
+      drawer: false,
+      items: [
+        { label: "Home", to: "/home" },
+        { label: "Recommendations", to: "/about" },
+        { label: 'Appointments', to: '/tutorials' },
+        { label: "Faq", to: "/faq" }
+      ],
+    };
+  },
+};
+
+
 </script>
 
 <template>
+  <pv-toast></pv-toast>
   <header>
+    <pv-toolbar class="bg-red ">
 
-    <div class="wrapper">
+      <template #start>
+        <pv-button
+            class="p-button-text text-white "
+            icon="pi pi-bars"
+            @click="drawer = !drawer"
+        ></pv-button>
+        <img alt="user header" src="https://upc-coders.github.io/MapVet-LandingPage-Final/assets/images/logo2.png" style="width: 10%; height: auto;" />
+        <h1>VetMap</h1>
 
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-
-      </nav>
-    </div>
-    <a>Primer avance</a>
+      </template>
+      <template #end>
+        <div class="flex-column">
+          <router-link
+              v-for="item in items"
+              :to="item.to"
+              custom
+              v-slot="{ navigate, href }"
+              :key="item.label"
+          >
+            <pv-button class="p-button-text text-white header-link-home"
+                       :href="href"
+                       @click="navigate">
+              {{ item.label }}
+            </pv-button>
+          </router-link>
+        </div>
+      </template>
+    </pv-toolbar>
   </header>
-
+  <pv-sidebar v-model:visible="drawer"> </pv-sidebar>
   <RouterView />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+
+.bg-red {
+  background-color: red; /* Cambia "red" al color que desees */
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.header-link-home {
+  margin-right: 30px; /* Adjust the value as needed */
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
 </style>
