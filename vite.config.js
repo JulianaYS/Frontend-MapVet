@@ -3,8 +3,11 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+
+
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/Frontend-MapVet/',
   plugins: [
     vue(),
   ],
@@ -14,3 +17,11 @@ export default defineConfig({
     }
   }
 })
+
+
+import VitePluginGhPages from 'vite-plugin-gh-pages';
+
+
+
+
+
