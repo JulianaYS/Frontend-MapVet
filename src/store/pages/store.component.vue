@@ -87,5 +87,18 @@ export default {
 </template>
 
 <style>
+img {
+  max-width: 200px;
+}
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-container .card {
+  width: calc(25% - 1rem);
+  margin: 0.5rem;
+}
 </style>
