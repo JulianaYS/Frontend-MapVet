@@ -42,6 +42,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../public/pages/faq.component.vue')
     },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("../public/pages/register.component.vue"),
+    }
   ]
 })
 
