@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <div class="container">
     <div class="card">
@@ -57,7 +53,7 @@
                   <div class="form-group">
                     <input type="password" class="border border-transparent rounded p-3  w-full text-lg text-decoration underline"
                            id="repeatPassword" placeholder="Repeat Password" v-model="repeatPassword" required/>
-                    <p v-if="passwordMismatch" class="error-message">Passwords do not match.</p>
+                    <p v-if="incorrectPassword" class="error-message">Passwords do not match.</p>
                   </div>
                 </div>
               </div>
@@ -99,9 +95,9 @@
               <div class="field col">
                 <div class="form-group-button" >
                   <router-link to="/about">
-                    <pv-button type="button" class="text-white text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700"
-                               @click="submitForm" ::disabled="isFormEmpty || passwordMismatch"
-                               style="font-size: 1.5rem; padding: 15px 30px; border-radius: 15px;" >Register</pv-button>
+                    <pv-button type="button" class="text-white text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-600 hover:border-600 active:bg-700 active:border-700"
+                               @click="submit" ::disabled="isEmpty || incorrectPassword"
+                               style="font-size: 1.5rem; padding: 15px 30px; border-radius: 15px; background: #31b4a7;" >Register</pv-button>
                   </router-link>
                 </div>
               </div>
@@ -115,6 +111,72 @@
 
 
 </template>
+
+<script setup>
+
+//import{UserService} from "@/identification/services/user.service";
+//
+//export default {
+//
+//  data(){
+//    return{
+//      firstName: '',
+//      lastName: '',
+//      email: '',
+//      password: '',
+//      repeatPassword: '',
+//      birthdate:'',
+//      genderFemale: false,
+//      genderMale: false,
+//      userService:new UserService(),
+//    };
+//  },
+//
+//  computed:{
+//    isEmpty(){
+//      return(
+//          this.firstName ===''||
+//          this.lastName ===''||
+//          this.email ===''||
+//          this.password ===''||
+//          this.repeatPassword ===''||
+//          this.birthdate ===''||
+//          this.genderFemale===false||
+//          this.genderMale===false
+//      );
+//    },
+//    incorrectPassword() {
+//      return this.password !== this.repeat;
+//    },
+//  },
+//
+//  methods: {
+//    submit() {
+//      if (!this.isEmpty && !this.incorrectPassword) {
+//        this.register();
+//      }
+//    },
+//    async register() {
+//      const userdata = {
+//        firstName: this.firstName,
+//        lastName: this.lastName,
+//        email: this.email,
+//        password: this.password,
+//        birthdate: this.birthdate,
+//        genderFemale: this.genderFemale,
+//        genderMale: this.genderMale
+//      };
+//      try {
+//        await this.userService.registerUser(userdata);
+//      } catch (error) {
+//        console.error('Error registering beginner:', error);
+//      }
+//    },
+//  }
+//}
+
+</script>
+
 
 <style scoped>
 
