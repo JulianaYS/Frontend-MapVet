@@ -49,6 +49,26 @@ export default {
     </pv-toolbar>
   </div>
 
+  <pv-sidebar v-model:visible="visibleRight" class="w-full md:w-20rem lg:w-30rem" position="right" style="background: #fff0cb;">
+    <div class="card">
+      <pv-data-table :value="cart" tableStyle="min-width: 18rem">
+        <template #header>
+          <div class="flex flex-wrap align-items-center justify-content-between gap-2">
+            <span class="text-xl text-900 font-bold">Products</span>
+          </div>
+        </template>
+        <pv-column field="name" header="Name"></pv-column>
+        <pv-column field="price" header="Price (S/)"></pv-column>
+        <pv-column header="Image">
+          <template #body="slotProps">
+            <img class="w-6rem shadow-2 border-round" :src="slotProps.data.image" alt="image">
+          </template>
+        </pv-column>
+        <template #footer> Total: S/{{ totalPrice }} </template>
+      </pv-data-table>
+    </div>
+  </pv-sidebar>
+
   <div class="card-container">
     <div v-for="product in products" :key="product.id" class="card flex align-items-center justify-content-center">
       <pv-card style="width: 18em">
