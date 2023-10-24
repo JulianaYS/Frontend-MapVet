@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <img src="public/identification/animals2.jpg" class="p-6" style="width: 60%;height: 80vh; ">
 
@@ -48,7 +44,7 @@
             <div class="field col flex justify-content-center">
               <pv-button @click.prevent="submitForm()" type="button"
                          class=" btn-login text-white text-base border-1 border-solid  border-round cursor-pointer transition-all transition-duration-200 "
-                         style="font-size: 1.5rem; padding: 15px 30px; border-radius: 15px; background: #31b4a7;">Login</pv-button>
+                         style="font-size: 1.5rem; padding: 15px 30px; border-radius: 15px; background: #31b4a7;">Log in</pv-button>
             </div>
           </div>
 
@@ -59,6 +55,53 @@
   </div>
 
 </template>
+
+<script>
+import {UserService} from "@/identification/services/user.service";
+
+export default {
+  name: "login.component.vue",
+  data(){
+    return{
+      role:null,
+      email:"",
+      password:"",
+      user:[],
+      userService: new UserService(),
+      responseData:[],
+    };
+  },
+  methods:{
+    submitForm(){
+      this.login1();
+    },
+    async login1(){
+      const loginData={
+        username:this.username,
+        password: this.password,
+        role: localStorage.getItem('role'),
+      }
+      this.role=localStorage.getItem('role');
+      try{
+        this.responseData = await this.user.loginUser(loginData);
+        localStorage.setItem('user',JSON.stringify(this.responseData.data));
+        if(this.responseData.data.role==="1"){
+          this.$router.push('/vets');
+        }
+        else{
+          this.$router.push('/pet-owners');
+        }
+
+      }
+      catch (error){
+        console.error('Error login in: ', error);
+      }
+    }
+  },
+}
+</script>
+
+
 
 <style scoped>
 
@@ -85,7 +128,8 @@
 }
 
 .with-margin {
-  margin-bottom: 0.5cm; /* Agrega un margen inferior de 3 cm */
+  margin-bottom: 0.5cm;
 }
 
 </style>
+

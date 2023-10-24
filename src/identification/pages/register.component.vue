@@ -53,7 +53,7 @@
                   <div class="form-group">
                     <input type="password" class="border border-transparent rounded p-3  w-full text-lg text-decoration underline"
                            id="repeatPassword" placeholder="Repeat Password" v-model="repeatPassword" required/>
-                    <p v-if="incorrectPassword" class="error-message">Passwords do not match.</p>
+                           <!--<p v-if="incorrectPassword" class="error-message text-lg"  style="margin-left: 0.4cm; color: dimgray;">Passwords do not match.</p> -->
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@
                   <div class="form-group">
                     <input type="text" class="border border-transparent rounded p-3  w-full text-lg text-decoration underline"
                            id="birthdate" placeholder="Birthdate" v-model="birthdate" required/>
-                    <label for="birthdate" class="font-light " style="margin-left: 0.4cm; color: dimgray; ">(DD/MM/AAAA)</label>
+                    <label for="birthdate" class="font-light " style="margin-left: 0.4cm; color: dimgray; ">Format: (DD/MM/AAAA)</label>
                   </div>
                 </div>
               </div>
@@ -112,68 +112,68 @@
 
 </template>
 
-<script setup>
+<script >
 
-//import{UserService} from "@/identification/services/user.service";
-//
-//export default {
-//
-//  data(){
-//    return{
-//      firstName: '',
-//      lastName: '',
-//      email: '',
-//      password: '',
-//      repeatPassword: '',
-//      birthdate:'',
-//      genderFemale: false,
-//      genderMale: false,
-//      userService:new UserService(),
-//    };
-//  },
-//
-//  computed:{
-//    isEmpty(){
-//      return(
-//          this.firstName ===''||
-//          this.lastName ===''||
-//          this.email ===''||
-//          this.password ===''||
-//          this.repeatPassword ===''||
-//          this.birthdate ===''||
-//          this.genderFemale===false||
-//          this.genderMale===false
-//      );
-//    },
-//    incorrectPassword() {
-//      return this.password !== this.repeat;
-//    },
-//  },
-//
-//  methods: {
-//    submit() {
-//      if (!this.isEmpty && !this.incorrectPassword) {
-//        this.register();
-//      }
-//    },
-//    async register() {
-//      const userdata = {
-//        firstName: this.firstName,
-//        lastName: this.lastName,
-//        email: this.email,
-//        password: this.password,
-//        birthdate: this.birthdate,
-//        genderFemale: this.genderFemale,
-//        genderMale: this.genderMale
-//      };
-//      try {
-//        await this.userService.registerUser(userdata);
-//      } catch (error) {
-//        console.error('Error registering beginner:', error);
-//      }
-//    },
-//  }
-//}
+import{UserService} from "@/identification/services/user.service";
+
+export default {
+
+  data(){
+    return{
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      repeatPassword: '',
+      birthdate:'',
+      genderFemale: false,
+      genderMale: false,
+      userService:new UserService(),
+    };
+  },
+
+  computed:{
+    isEmpty(){
+      return(
+          this.firstName ===''||
+          this.lastName ===''||
+          this.email ===''||
+          this.password ===''||
+          this.repeatPassword ===''||
+          this.birthdate ===''||
+          this.genderFemale===false||
+          this.genderMale===false
+      );
+    },
+    incorrectPassword() {
+      return this.password !== this.repeat;
+    },
+  },
+
+  methods: {
+    submit() {
+      if (!this.isEmpty && !this.incorrectPassword) {
+        this.register();
+      }
+    },
+    async register() {
+      const userdata = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        password: this.password,
+        birthdate: this.birthdate,
+        genderFemale: this.genderFemale,
+        genderMale: this.genderMale
+      };
+      try {
+        await this.userService.registerUser(userdata);
+      } catch (error) {
+        console.error('Error registering beginner:', error);
+      }
+    },
+  }
+}
 
 </script>
 
