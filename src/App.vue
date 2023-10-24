@@ -9,8 +9,9 @@ export default {
         { label: "Home", to: "/home" },
         { label: "Recommendations", to: "/about" },
         { label: 'Appointments', to: '/tutorials' },
-        {label:'Store', to:'/store'},
-        { label: "Faq", to: "/faq" }
+        { label:'Store', to:'/store'},
+        { label: "Faq", to: "/faq" },
+        { label: 'Register', to: '/register'}
       ],
     };
   },
