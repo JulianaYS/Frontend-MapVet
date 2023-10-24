@@ -9,6 +9,7 @@ export default {
         { label: "Home", to: "/home" },
         { label: "Recommendations", to: "/about" },
         { label: 'Appointments', to: '/tutorials' },
+        {label:'Store', to:'/store'},
         { label: "Faq", to: "/faq" }
       ],
     };
@@ -59,7 +60,7 @@ export default {
 <style scoped>
 
 .bg-red {
-  background-color: red; /* Cambia "red" al color que desees */
+  background-color: #31b4a7; /* Cambia "red" al color que desees */
 }
 
 .header-link-home {
