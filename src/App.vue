@@ -11,7 +11,8 @@ export default {
         { label: 'Appointments', to: '/tutorials' },
         { label:'Store', to:'/store'},
         { label: "Faq", to: "/faq" },
-        { label: 'Register', to: '/register'}
+        { label: 'Register', to: '/register'},
+        { label: 'Login', to: '/login'}
       ],
     };
   },
