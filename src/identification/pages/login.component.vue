@@ -1,5 +1,5 @@
 <template>
-  <img src="public/identification/animals2.jpg" class="p-6" style="width: 60%;height: 80vh; ">
+  <img src="/identification/animals2.jpg" class="p-6" style="width: 60%;height: 80vh; ">
 
 
   <div class="container">
