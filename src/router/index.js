@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import("../appointment/pages/appointment.component.vue"),
     },
     {
+      path: "/store",
+      name: "store",
+      component: ()=> import('../store/pages/store.component.vue')
+    },
+    {
       path: '/faq',
       name: 'faq',
       // route level code-splitting
@@ -37,6 +42,21 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../public/pages/faq.component.vue')
     },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("../identification/pages/register.component.vue"),
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("../identification/pages/login.component.vue"),
+    },
+    {
+      path: "/petprofile",
+      name: "petprofile",
+      component: () => import("../petprofile/pages/petprofile.component.vue"),
+    }
   ]
 })
 

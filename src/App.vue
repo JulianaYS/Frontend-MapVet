@@ -6,10 +6,13 @@ export default {
     return {
       drawer: false,
       items: [
-        { label: "Home", to: "/home" },
+        { label: "Profile", to: "/petprofile" },
         { label: "Recommendations", to: "/about" },
         { label: 'Appointments', to: '/tutorials' },
-        { label: "Faq", to: "/faq" }
+        { label:'Store', to:'/store'},
+        { label: "Faq", to: "/faq" },
+        { label: 'Register', to: '/register'},
+        { label: 'Login', to: '/login'}
       ],
     };
   },
@@ -59,7 +62,7 @@ export default {
 <style scoped>
 
 .bg-red {
-  background-color: red; /* Cambia "red" al color que desees */
+  background-color: #31b4a7; /* Cambia "red" al color que desees */
 }
 
 .header-link-home {

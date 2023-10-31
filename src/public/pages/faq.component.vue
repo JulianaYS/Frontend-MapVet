@@ -1,20 +1,26 @@
-
 <template>
-  <div style="display: flex; justify-content: center; align-items: center; height: 200px;">
+  <div style="display: flex; justify-content: center; align-items: center; ">
 
     <h1>Frequently Asked Questions</h1>
-  </div>
-
-
-  <div v-for="p in questions" :key="p.id" class="product-box">
-    <h3>
-      {{p.question}}
-      <br>
-      {{p.answer}}
-    </h3>
 
 
   </div>
+  <section class="content">
+    <div class="questions">
+      <div v-for="p in questions" :key="p.id" class="product-box">
+        <h1 style="text-align: center;">
+          {{p.question}}
+        </h1>
+        <br>
+        <p>{{p.answer}}</p>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
 
 </template>
 
@@ -27,7 +33,7 @@ export default {
     };
   },
   mounted() {
-    fetch("https://my-json-server.typicode.com/Yorusito/VetCareDB/data")
+    fetch("https://my-json-server.typicode.com/Yorusito/VetCareDB/faq")
         .then((res) => res.json())
         .then((data) => {
           // Si los datos se devuelven como un array directamente, asigna data a products directamente
@@ -43,12 +49,36 @@ export default {
 </script>
 
 <style scoped>
+
+
+.content {
+  flex: 2;
+  display: flex;
+  background: rgba(255, 240, 203, 1);
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
 .product-box {
-  border: 1px solid #ccc;
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+div.questions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  max-width: 800px;
+  margin-left: 15px;
+}
+
+.product-box {
+  border: 1px solid #DDF3F6;
+  border-radius: 10px;
   padding: 10px;
-  margin-bottom: 10px;
   max-width: 400px; /* Opcional: limita el ancho máximo de los cuadros para evitar que sean demasiado anchos */
-  margin-left: auto;
-  margin-right: auto;
+  background: #DDF3F6;
 }
 </style>
