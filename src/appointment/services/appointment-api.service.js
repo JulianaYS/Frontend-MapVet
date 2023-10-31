@@ -2,22 +2,22 @@ import http from '../../shared/services/http-common';
 
 export class AppointmentApiService {
     getAll() {
-        return http.get('/appointment');
+        return http.get('/prescriptions');
     }
     getById(id) {
-        return http.get(`/appointment/${id}`);
+        return http.get(`/prescriptions/${id}`);
     }
     create(data) {
-        return http.post('/appointment', data);
+        return http.post('/prescriptions', data);
     }
     update(id, data) {
-        return http.put(`/appointment/${id}`, data);
+        return http.put(`/prescriptions/${id}`, data);
     }
 
     delete(id) {
-        return http.delete(`/appointment/${id}`);
+        return http.delete(`/prescriptions/${id}`);
     }
     findByTitle(title) {
-        return http.get(`/appointment?title=${title}`);
+        return http.get(`/prescriptions?title=${title}`);
     }
 }

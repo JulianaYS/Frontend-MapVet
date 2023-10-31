@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     cargarDatos() {
-      fetch('https://my-json-server.typicode.com/Yorusito/VetCareDB/pets')
+      fetch('https://vetcareapi.azurewebsites.net/api/v1/pets')
           .then((res) => res.json())
           .then((data) => {
             this.pets = data;
