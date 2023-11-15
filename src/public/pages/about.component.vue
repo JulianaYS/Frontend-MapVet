@@ -81,12 +81,28 @@ export default {
 
 
 <style>
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 60px;
-  max-width: 800px;
-  margin: 0 auto; /* Centrar el contenedor en la página */
-  padding: 20px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
+.card {
+  display: grid;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+
+}
+
+/*.swiper-slide {
+  text-align: center;
+  background: #fff;
+
+  /* Center slide text vertically
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}*/
 </style>
