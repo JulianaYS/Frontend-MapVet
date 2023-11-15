@@ -1,78 +1,108 @@
 <template>
-  <div class="card-container">
-    <pv-card style="width: 25em" >
-      <template #header>
-        <img alt="user header" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUSEhcTFBUYGBcQEg4SEhEREhEYDhUOFxMYGBcTFxcbICwkGx0pHhcXJTYlKS4wMzMzGiI5PjkyPSwyMzABCwsLEA4QHRISHjAkISowMjIyMjIyMjIyMjIyMjIwMjIyMjIyMjIwMDIyMjAyMDAyMjIyMjIyMjIyMjIyMjIyMv/AABEIALoAtQMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAABQEGAgMEBwj/xABEEAACAQMCBAIGCAQCCAcAAAABAgMABBESIQUTMUEGIjJRUmFxgQcUI0KRscHRYpKh4XLxMzVDc4Kis8IVJCaTtNLw/8QAGwEAAQUBAQAAAAAAAAAAAAAAAAECAwQFBgf/xAAuEQACAQMDAwMCBgMBAAAAAAABAgADBBESITEFQVEGE2EVIhQycYGRoTSxwSP/2gAMAwEAAhEDEQA/AK/RRRWtPT4UUUUQhRRUURJO1FArmur1I/SO/sjdqQkCQVayUl1OQBOnTUUmPEZJNo026aiM4+fSshw+Z/Tkx7gWP9BtSAk8CYV16ltqRwu5jVpVHUgfE4rD6wntL/MtcK8EXu5PwCj96k8Ej9bfiv7U7S3iZber1zssYq4O4PzBrLFKG4Lj0JCPVkftWJhuY+h1gds5/wCU70hDDkS1Q9V0HOHGI4NSKVQ8XwdMiFSNiQG/KmUciuMqQQe4NICDOhtr+hcDKMD8TOioqadLsKKKKIsKKKKIQoooohCiiiiEKKiiiJMulYM2kZJ2AyST0rJm0jJ6AZJPakksj3L6E2QHc+v+I/tSE9hzMzqXUadnT1Md+wmdxxB5DoiHXYv3/sK32nCFXzSeZjuQfRDfrTHhtioZI1wNbqpc+0zadRq98XsLC0UwSRya+WHSYFiXZvLtvj5EY2pCQhGoZJnm991Ovesx1YUSv+GfDxvGZQ6xrEFLHTltLatOBsO1cd1YGCflS7aHVXI6GPV6Q9xG9O/AjYujG4Om5hkQAhhleur+jU78RcJFxBnmJJc2aASshxqXzeVvfsT8c+ummqVfSeDM8Ug9MOOQd/mbeO2UUUbKLNWhMQKTQoplSXB8znrj0Tq/GvN69L4NLHCiOlyptzEdcM8itIsnpeUfd6sCB+Brzq6dWkcoMKzyFB0wjN5V/Ci3JGQYXSggMO/aXHhHCrVbGOW4jLtcTaE0FhINbaQo0kZHkJpD4q4Stpc8tCSpjV1DbsurUNJ9fSr1/wCHiRLJUdDHalZJCrKcyKo0ace/VSe3t1veJSTsQYbUqSxOVOhcBfhqBf4D31GlQhiSdt5K9FWUKAM7b/7lO4v4fkjUc6IhXClXIyoyM6cjofdVam4fJCdcTHbcp97T+tes+J+NSIDJHNFLDchkSJky6Np3bHu2692G1ILHwpPLbG4UY3yiHZ3Tuw/Qd/zlVwy5bAhTq1Lep/4sTjeU6x4ir7HysOoPQ/CmFcHE+G5JZfK6ncdMsPyNY8Nv9R0Ps67b7Z/vTiCp3nedF66tyAlQ4aMaKKKWdVCiiiiLCiiiiEKipqKIkKnFT2rlvrjlxlu+MKPWxpCcDMhrVVpIXbgDM4eJzmRxFH3PnI/L4CrD4b4MJJEgVguo+Z3KjPtMo7n1CknBbY41nJeQ4UYy2kt+pr0FfBUgTUkq85EDmEHDr3HmB6/LGe9N1BRknBPE8q6ne1LyuWxlQeJt454dLOY4IeWtrDqaZ2wsjac9ehPXfbvnGBW60u4+JWwhmdUuIR5JHKjV/Fv1z0I+dZcJ4+l5CbO8Yo7+VZgdOsjoG7A7d9j8aqnjXi9vGUhtkUiAMiuPTdtW+T3XOfic42qLfhtsd5VCgnKbg8iPfFfiGO2lt2jdGltk0vIq/Zu2kDSAvUdTgdM1Sm4jd30rm3ieR5GzIY0bRqb142A+Jqz+D/o4e403N/qCthlt+jsvYufuD3Df4V6zZ2UcKCOKNY0UYCIqqo/ComrBNl/mXEtgdz/HaeMWv0d8Vm3doofc8nm/CMH866W+iy/6i5iz6i0wH44Nez0VGazE8yYUlAxgTwS+8J8WtQWMXNRephZZMr/hGHb8K3+GvG5tdUE0Q5bswkR10tqbY749XYj8K90pB4i8KWt+uJowHx5ZlCiZW+P3vgcinCsSMNxGNQXkDBlI4NYWlzPJPkR20KxvynbLt5fvbnbPvPYVaZuIQNHDeu0sccZkWKLGEdtLqG0qO6g43x+vlPHOB3PCJQH+0gdsRyANobvpYfdfboevbNXO3ul4qA8siRQWqIWRTglmXSWAPo77DrjpUjANg52Eq6Wp5AAyePmJLtXvrmSSGInUzPpQZ0qq+kT0ydPzNVbi1n/tE2ZN2x309/iK9utpRBCBbwHDD7KFVxK+f9pIT6C/Hf8AKqB4h4FPB9vMqjnu5Kx7hHZtWk7YGd8Yz0qZKof7TsO3mQaXoMHUnPJxxKtw+75iZ7jZh/FXVSYj6vP/AASfgA37GnWaeM8HkT0/o18LugCTuNjIqaKKdNiFFFFEWFRU1FESFKOKNrlSMevJx2z+wpvSiwGu4d/Zzj+bA/pmmkZIHmc56kuTStSByZYeGXPIkSRVU8sqVVwxHl6dK9E4Nxy0uZDJgQ3Lo0ep91bOy77B/RXrg9q80oqSpQVx4M8wpXDIfInf4l4e9i55hDZDOrKfTXOBkdQSa7voy8LidzxG5GUVm5CuPKzDrI2fujoPevuqqXyyXc8NsGLNK8UakljpVm0j5AZNe9w8HiSKKEAhLUxGNVOFLIvlZgPS333771TuHYAKTNa0prguBjM5+N3cirmORUJDKgZANU+nKedzjR6IOAdzjINaOEccfEKXfKWW5RmjeB2aCRlb0QW9E4YEDJB7HtTLiXCIrkASpr0MGQ9GRts6SNxnG9KVDosvMZGtVVU0gNzYOWrI2Ao84yiEdCNWewqnL0tNFLOGXOY0DuGLKNL4wJVxs4HrIwSOxzTOiEKKKKIRdxbh0d1E8MqhkkGlgfSB7Mp7MOoNeGiCTg/EeVIodFdXj1DySRs3lb9PcR3xXtN/xbRcRW0eHkkfVIo35dsqkmR8ejvoAz11VU/pg4MJbMXKjz2jKSe5hZgpHyJB/GpKblTjsZFVQMs7346iRLPcyqeYqvHbW5wpXtrPVvUc4HUYNU3jviKW8OG8kQPliU7e7Ue5qvWEvMRWPdcH/EPKa6K0aVFV+7mYle4dspxjmLeMwao890OR/h71s4bNrjU9wNJ+IrrdMgj1hgaUcDfBdD905x/Q/kKdUGCD5nTek7opVKE7GN6KKKSekQooooiwqKmooiQc7H3AmlPAF2dvWwH5/vTSUeU+8N+VLeAHyt/j/wC2hfzicV6vY+2ojaiiirM86nd9HVtzeMhu1vHLJj1sF0D+rZr3Q14p9FDaeKyg/egmxnv9oh/Kva6xq5y5nTUAAgA8TKklzwpnlMkczxnMuVTSULPCiBnU7EgoCPjTuq3xqJUuIZ2j1DmCJXDMrRTP5VfbZkOwOc40pt1qGTTstuHM8Ahu2ExVs8xlVdWGyraQBpI93q60qv8AgVxG8Zs7iRUL/bpLPJIREzL/AKLXkDA1nf3Vw8a45FJcfVnuzAhdYyYGZbkzIrM7c0bIgJUEnqUI7Gp8YcUQwZBuBFGIXW9tJGCmRtQ0Er1GNJzuMkDY0QnbxeS7tXiEcrzc9+XiaCJoUbTkM7x6Ci9d8Gk3Abq+4nzNd3HDHFI0UkdkFacsv3hIc6VPYgnv6qd8M4+EiHPEurlNKjPGxlkh1YLBAgORlcjHQg79a02yLDxKOSJY1t+IWuhXiVQj3SsXRmxtkoWx69/VRCPeDcGhtFKxKQXOqR3Zmmkb2nc7k1nx20E1rNEd+ZDMmD/EhFMa0XMgVGY9FVmPwUZpRzCfN/AH+zYey2fxWmlJ/D67OfWVFOK2aP5BObuwBVOIUksdrmQe0GP/ADA07pJbb3b+4Nn+lJV7frNf06SLtceY4qaippk9bhRRRRFhUVNRREgfzpRwU6XkT1FTj4MR+tN6Tg8u690n6/3FJnDAzlPVNAvbhh2jkmoDg/MZqJAcbfPPs1pQ5Ix26nPWpyxBxPMwoIzOrw3eC14vBIxIV3EbH7ul1Me/uBINfQNfNvF7cumpfSQ5GOuO/wC9e0+A/EK39mjk/ax6Y51zvzAPS+DDf8R2rOukIbM3bOoHpgdxLXSzj0Za3kAOCArq2FOllYMGwfeKZ0p49LphZACXmDRoi7szt+gG5PYCqkuTDhkayc0vGuRczqNSqfKpCq2/rCqfnTjH+WKWcFgZEcsMcy4uZFA9hnOlvmAD/wAVNKIRVxnhYuIwFdo5I21wzR7OkmMfNSNiO4qsNNLEZBfl1hIVw8aNJDHKrLpkikQa4sHfDg4I2PWr5UEUQiLhnFmMogkBbUnMhukXME0XtZGyOO46HqMZxWnx3xIW3DriTuY2jTJxmSTyD8NWflXDxoskVw8IKpGfOqlo4zpVXMg29IEMCBjOcHsRSPpX439ZnSxjOVhbXKQcgzY9H5KTn3n3U9ELMAI12CqSZVOCx6YgfaLH9P0phmtZGhAB0UKAB7NYKcdN9sY9Va6nQAJzdQ62LfM6KS8MOqaV+2SAfif7UyvJdEbN6lbH+LtXHwOPCFu7t/Qf3zTahyQJ0fpagXuQ3YRjU0UU2eowooooiwqKmooiScUr43DlQ46odyPZ/wA6aZ2rF0DDSe4wR66RhkYlO8txcUWQ9x/c1Wc/MjDe0MEepu9dAXb4e6kllJyJDG3oufKT6I9R/SntS02DDfmeO31s1vVKMMbzDHatHCOKy8LuhPFvG5xJGThWj9n3H1H+9bHbH4ZFAIkGCM5GCDSVFVxpMbb1WpNkcd57lwLjcN7EJYHDKRuOjq3dXHY13PAjFSyglG1KSN1bGMj1bV4j4NsniuH5MzRMUyu2VOn7pB2Yb969B4V4wkPku7d42UsDLB9pC2n72kedfhg1lVKZRiJ0dNTUQOu4MuYrgu+KRRMqSSBWc4UN3/Ye80uuvE0CJqR9ZJUaVGHVm9tWwV+e9LJbNbgNIfMWGSfvafZA93qpuDLFK31DLbCXLORRiqgniaKzg1XDtpVuWhVGZ28p0pt0by98Ug8TeKJZ4H5IkiYKGjUHEhLMoy7DZSAc4GfjQFJMb+Gckgdt50/ST4shgjNqirLPIMaSNSRKfvOO59S/M9s+a8NtSuXckvIWLMxy3m3bJ9Z71vsOCODrcF3Y6i7lj5m6t5t2PvrpkQq2D26itC3pqp5yZj33u6eCB5PeYkbYrWkQBzv79+tbK1XU4RSx7DYetvZq2ccmYyBidK94t41KWKxL1YqSPyplBGFQKOwA+NLeFRF3Mz/eLaf/ALfpTXFVs5JM9S9N9PNvQ1sNzCpqKmnTpoUUUURYUUUUQkUVNFEScXEbPmL/ABLup/7a18Mvc/ZybMuwJ7+740xal/EOH6/MuzjofXSbqcicz1zoq3aF0H3D+52yIeoO56DFTAhHbcntuxpXZ8SKnly7EbByPz/erLwviKRndM531huv9KV6gUZAz/ycLb9LepVNFzpPz3mHD7oxSBsb4xvq2q8cMvA7a9I0sF1YOWDafSxtSmS5ilTBUjPcKpx8xXFC5iOx2z1B2NUaj62zxOwsumijQNMncHmOuLqDITjYlcHGPLXfw7iqRLpdgB6yar99xAuoHqG5+8aUzPnamdpfW0DqFbbEsr3EUzMAyspdXVGXyiRV9IZHWsYbQM+49I439laVcKKlMdx0Prpml6I9320r5RjzFvhSRj0fbyFmXG50gj2A1MMKKokrsxOT13znrTm+uOfIXkbSo2Vc5wv70kvXjjOrV5fNgEeZvgKt0GUbA795yXVqVwwDMMLnAHczJJdKksRheu/RaTuzXUmBkRodz/3fE0DXctgeWMHr/wDuppxbQqihVGAP6/xGpmYsMdpc6H0JncVagwJKoFAA6AYAHas+tHWo6Us9CRQowOIVNFFEfCiiiiLCioooiSaKKKIsKiiiiJNN1aJIN+o6MPSFKzFNB6HnUHOMZx8vu/KnVGKaygzMu+mUrj7sYbyJz8M495gpBBJxjGVp896ncHPu0/vSCS3bVqQjfqCMZ+dalhcvnGNt/N1b5VQrK4OFEq0aFWkdLZO+x+JZHvlbGhN+hLnyj5f3rhv7wIRkekPu75rnjdh23Hv61qERkLa8ZJ8oB8oHs1WNOoqkkGWaupFyoOfmddtxRTsGK4OQScZ+fauh7nOSe/Vic5quS2rKT7q22doGyTnrjGcCihrc47yGm7uwXTvGM90vTPxI3paeHK76yzEey239fVXdHAo7fM71tNaFKgynLH9paaxWqQaoBxxNaIAMAdBgADpWVFRVqXVUKMCTU0UUR8KKKKIsKKKKISKKO9dNhaG4uIoA2jnuyFwqsVCoW2B+FNZgoJMgrVVpIXbgTmzRmrnL9HZBMaXqmQJrEbQKMpqwGIDZAztmuHgHgp7q358lzyir3COgjRkTlSMhbJI28uah/ELMr67QxneVqpq12fgdJXeNeIKSjhVCRwkuvLRiwAf3kfKuLxP4WFjGH+tCRi8amJo0VyrNgt5WztSiupOI5OtUXYKAcn4iFRQKd+F/DbX5kdpOVDA2h3VVMjvp1Mo1bKAGG5BrZ4j8MrbWwu4LjnW55eS4XWFdgokR0wGGSu2KDXUHEV+sUEfQc5HeIM1FW3gngCS5top2uihuI45dAhVlVXUMFyW32IpT4Z8NPeTXMLTcs2T8tisatrbmSpnc7f6IH/io99Y363Q352iipzVj434Ne3tpbmK5WYQCQunLVW8jYcKysRkYOQR2NdXD/AnMtY7iS85YmjhkIaJAqM6g6dRb34pDXUjeIet2+M7/AMSotvuayAAFQ4CNIpcOI5JoxIAoVlRmAbbbcDNbvqU/L5v1ebladRk5T6NGnVq9ejG+rGKcpRQCMDMurdUVVXJAyNs8zRWQGa0XE2Iyy+zkHqPjV7g+jsSLqS+1DoSkMbDPqyGpXqKp3kd11KlbEBsnIztKVUAVYrLwa8t28Ed0rxRRwu9wqKW1OzfZgBiM4UnJ6eqsvEvhHkWj3lpcGWOMMXWQIWCozK7I6gDYg5BHY70z8QsrfXaGQMGVzFFWG+8FypJaLFc64752DSGJAUXl81WAB82VVvwrbZeB3e7lt/rOY7VYWkkEaiUySAtoQZIAC4OTnr0o/EL8xPrtDwZWsGjFWDj/AIYS3tReW1zzYVZVYNoLEGTlaldAAcEgEEe1vVf61IlQOMiXrO9p3Sllzt2kUVFFSS9Cmnhb/WNp/vm/6ctK67+AXCx31s7sEVZmLSOyhFXluPMTsOtRVvymUOpf47fpPU+ISW9td/W5riOMm15PLdlDFOYX1jJy2+2AKWeGmjueFTF2KRXD8TLuSqlIXmly2TsuFOd6qP0g3sVxexvG8cirbKpZGjdQ/MdtOodDinnhG+tW4W1rNcRxmUXsbq0kayKru4zhvcciqJTAB8zjGtCtIVPJ4lc8J2cMPG4o7eQSRRmYJMOWS+q0cldSAA4O1dP0ioDxNiQMi2t8EjLDzP0rn4UlvZ8agWO5WSBI3Yzu8GhXaGVdLOgC9k9/mrLxveRzcQZ4nWReRAuuN1ZNQZ8rkd96fTALCXbJNVypGcY7iWT6O/8AVt1/vrv/AKaVSZvE0rcFFn9UYR8lEF2Wk0FVkVlbHLxvjHWrP9H3FoY4p7SaRYzLI7ozsqh1dFU4J2yCOnvrfxm8tLXh0HDeekjM1pCzKV0CJZlZ5HwSEXCnqf1pjjDGU7pGFdgV7mW1bj6u9jbdNcckZHq5UK+WkfhC25fF+LKe8lk496yK7/mzV28S8a28dzbRpJC6XDTiSUSoViVVBUswOFydt60WPGbROI3Un1mHTPb8PIbnR6S6NMrDOeoGj+YUyVfbeYeIQsPC702v2ut78ylnUaHd2EvbcJk7fw9a2S2ME/BYI7mTlRNb2BaTUi4ZVQru4I3IA3FJ4+M23/h3EE58WqSbi7IvMTU6uz6GRc+bPbHWuxLiyu+FwWst3HH/AOXsy5WaESq6KjacPkdRggijEcEYETzdTHG46SRRXK7AL9pCk6+UAAA5UduuqvcXiIc3XMflLaupttGxbIfmY668AjHvrxi1ljt7xG18yG2vIzzMK2YUb/SeQYOM52HavVX43BHPznvYuTLFDGkGtSwn5jfaBw2ykNg5HYEkYqZznH6TQ6gGYoRnGBPHLWVJAQoADFmEYOQiMxYL8gcV6R9GigcPuQABie4wAMKPsUqreL5YWvAtuYeUluoT6syFPM7M+dOwbP4hs0+8B8Wghs7hJZo43aaZlV5FVirRooYBjmnNuoMt3TGraISu4OP2kfQwgEdxgdTak7Yz9nTC1H/p6ceuPiv/AMiaq79GHF47VnjmcILhLdkdzpTWisCpJ2BwVIz1p3xy+t7Phb2aTJLJMt0iKjKXPOkdixAJwAHO56499RFTnEyalB/c0454jT6PbsS8NhL7tZGSIknpoBVW/wDbZfxqo+EPGMcV5cPO2E4jLzUdjnl4LKiv6lKY37Y9W9dvgXikMNjdxySxxu00zKjuiuwaCNQQrHJyQRXD9GXE4bdpI52VOfHbFHfSEJRXBUk7A7gj170pXGfiPNuRq+3OJ1+NPDskFvrt55GsiVZ7TUpRNUgcOhxumsgkHp1z2qo1fOLXMFlwlrJbhJpJFmjjClS55sjNuAx0gBupPb5VRF2/Cp7bgzf6Bq0sCNs8yKKmirc6KQKhlz1/AjNZVNEQqGGDMFjA6ADPqGKgxL7IPvIFZ0UmgRvtJjGJhyh6h8NK1kqAdMb9cDFTUUaBEFNV4EGQHqAfcRmoWEAYCjfqMKAayrKk0CKaKE5ImrlL6h/KtRyV9kfyrWyil0CN9lPE18pfZH8q0cpfZH8q1soo0CHsp4mKp/kBUCFfZG/XyrWdZUmgR3so3ImtYwOgAz6hihowew+JVTWVRTtIh7a4xiQUyMED4EZFCRAdABnrgLWVFJoET2kznExMY7gH3kKaCgPUD4EZFZUUugQ9tfExSEL0AGeuAN6yO1TQaAoEcqKo+0YmNFTRRHT/2Q==" style="width: 100%; height: auto;" />
-      </template>
-      <template #title> Pecas Derm </template>
-      <template #subtitle> &#11088; &#11088; &#11088; &#11088;  </template>
-      <template #content>
-        <p>
-          Tu clínica veterinaria especializada en dermatología animal. Nuestros expertos cuidan la piel y pelaje de tus mascotas con pasión y precisión. Garantizamos su salud y confort en cada visita.
+  <div class="container">
+    <swiper :navigation="true" :modules="modules" class="mySwiper">
 
-          <h4>📍 Plaza San José, 72190 Puebla, Pue., México</h4>
-          <h4>&#128222; 012740159</h4>
-        </p>
-      </template>
-      <template #footer>
-        <pv-button icon="pi pi-check" label="Call" severity="success" style="margin-left: 1.3em"/>
-        <pv-button icon="pi pi-check" label="Share" style="margin-left: 1.3em" />
-
-        <pv-button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 1.3em" />
-      </template>
-    </pv-card>
-    <pv-card style="width: 25em">
-      <template #header>
-        <img alt="user header" src="https://www.miauguau.mx/images/images/hemvethospital.jpg" style="width: 100%; height: auto;" />
-      </template>
-      <template #title> Hemvet </template>
-      <template #subtitle> &#11088; &#11088; &#11088; &#11088; &#11088; </template>
-      <template #content>
-        <p>
-          Tu clínica veterinaria de confianza. Nos dedicamos a la salud y el bienestar de tus mascotas. Nuestros veterinarios altamente calificados están aquí para cuidar y proteger a tus fieles amigos
-          <h4>📍 Av. Villa María 749, Villa María del Triunfo 15809</h4>
-          <h4>&#128222; 012811046</h4>
-        </p>
-      </template>
-      <template #footer>
-        <pv-button icon="pi pi-check" label="Call" severity="success" style="margin-left: 1.3em"/>
-        <pv-button icon="pi pi-check" label="Share" style="margin-left: 1.3em" />
-        <pv-button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 1.3em" />
-      </template>
-    </pv-card>
-    <pv-card style="width: 25em">
-      <template #header>
-        <img alt="user header" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABDlBMVEX///8NQaT///0AOJ6Bm9L///zH0+0HP6P8/P8fT6MNQqAOQaH//v8APKENQaMAOZwANZ6CoM9Mb7acsuDw9P0APJlZfLn///gAN53i7P0AO5xfgrv6//92kc0APKUAOpkdTqbM2e8WSaSzw+Q9ZK8AP5ovW6gAMpymudzq7/tLdLbY4vQAMJm6y+nu+f8+aK4ALJeXsNbd7fg1XK9zjcLO2ekmU6+Eoc2ers++zu5jf8g8YrZNcrqDn9SNq9TO2vNwjbynu+ZEabtRermrw991kM4xXqZphLm6yd4AQpfi7u97msxceLAASJfX3e9GbKx3l9eVtM9aecR+mcHR4u+XueG7zvY1UrY2W7SGncVTKQ53AAAWcklEQVR4nO2di3+aStrHhyE4MCMDRhRFgopgvESslzQnaS5tLk09nm13e7K72f//H3mfAU1Ma1Nt2rcmH35n0xBE5cvMPJeZBxahVKlSpUqVKlWqVKlSpUqVKlWqVM9bOJv93afwa6V2Ffy7z+HXqh382/3d5/ArhdHwdaEBv15sO2J3eGs0ywpWfveZ/CpBG46Id4CUl0uIyyPmBeW7v3/nyfwSCUJdKvTmTaggVf2tJ/TThREQcmNr7hIVtG/91hP62cKCkHAviGbdE1t/tH/vKf1k2cjNTwhnfnnWTfFl8WW1IUKHNYeGjB7O/lSPKi9rHGaHb3RGoREHsx0NOfdbT+jnykZY3ZI554STabLHOt47eUFxOAQyPcqZJElMr4gdLuo5Zu4FEWaVqO8xAoTUK8Z7oopsvKQ2xOi0QGhMqB+L/AKfaexFESrdpi7FYvq2Bb5RGTvUGL8gW6rmDLJIqAybHtVfkj/sjjy+SIhaBg+9I+tlRN84i9E0pNI9oaJYFYNRs/hiCO2h5oULhBh3qUep3Hk5vfRUf0CooLxOKGPNFxJ5Y8U6BqAZISXQhm6RiK3JIXoR/gLjTDgzpDFh0EWx76Ckeu3ilzASs+6Ow+8IuUR76J1w/kzitfqLmMvIRk3C7giZZGy5J45g5ZL3VsUvYcKmV7vvpCCi1TvObDtsQFD+/AkPHPaAUApGM2TqaWfYfvbz4G5Rp4uEEvPCWZBKWeH9IXre86cuBsP5oJN+IZ2eDJGNs+i5dlasoPqEs0cQCTk/7aoYP1dCZKOGwfm3ARmVQq923SvDkc9TGBIn6fE25JR4heC0/Dw7Kkbq2CH0EcKZPDloPE+bg9VOYQXCkHIyefcc/QbG0bFDHuul874KrkNrqc/PqgLhSH/E0CyIMT2sQKD6zIIcINT0lQCBkHjGf0+j5wWYED7m8Rc6KpswxgqV8vNaJAZbul1YwZTOxYncaT8rzwiEx+sQglUtvXt+hN83pYutWJo+q4lijN1zspotnYkUntdUuIJWtjRzQufqmTn+hr8WoCQ5R9HvPueVBRlR1j0qrAfISWA9m7AGQ3bYWyXsXhQltTP7uWSLCkbDwFvLkoqEsZB7LoAiGZp6E289Qh6SoIyeibHBSv01o2v2UpCcV57JbL+Ncwb9AUIveC7FxIp17vwIoaQfl7//6Zsg3PWlx2ahviXuGRddRclmN39ao1FY09snYpQX+mfY3vyCaXf6Q4DgEynRtYYLAcPvRviO3OIKMzRLRCBKYF7tNELZbHajO2rUX3GKZql0vbPv2oq6yctv3ea6IduieOixnUN3o9PhTO3HeulMhDKjNu7+borHdOk9oQlnlFX/dIjA4mxmGDcw6Q8a0zsxGhrnly7ezBgHb5nhEwk5g+HIeDGzgTfaYIjZIHN6yjiMEcVwlGTtYChmUd1NakmIR26ozp48EGMRTw/eWSLh3KgQAPf2OHuCP1wQ9ZlX6vQ2q74IIzVXenInnYkQzonub5XRBpXfYBRdrLgkszJnqZ9BmzPBAYSP1mD8iKintdSNMaoY1V8/LIUi0lMHJZsU6LuNaUOEB9I9YUgJJwtFJyxksM9g3mQtQkkqSN3NMadT+f7cKOu3Btr9rBunlIXkoq+HS0AelXmwKfEbbh8b9+fFnYaY379fweDMOe5FOX3tsK56tCmEysfFikRS62IbtUIq7+7u7ZqmTsKrtoJOnHWHZliaboqpwQ1jgVA/L4OZV69udwatVut0fKyduggI2aPFREvEXvU2xdK4W8ZC+zjBENIDOxq6ooANu7CRjQkfLXlbIhJsyh0MOOov5vfOsYVFBqSI6TPYyGaxDWb/ZJVSm3txiUwam+EtcNbuThajbr34tX1QkLpTXWuag+vhSbQZsxpwmQdskVCeLjkIu8eFtSaMq7VTdUNKUdysO/b4AmFp+nXfymJrVFjHWxDpYGNiNmyXg8Wwm7DB18Mnq9Rrq/ORkJgXm7P8jZXeg9X7pYQoue1iVYXEz2xQApw9LT1ogOWELbYGITWmYJw2wpAKuccPb0Bgg6/vcMK4rCX3KZDYEYifb6zFEYlypyPuA9sYwmH1wZkSv/F1BwNvcZwQTkIWhgyMr9AyBwnc+vuz3wHyTeUd6QtC++shhN1KNfb4xKGjWy4buu4wRmJ9QcgL/fomTShit2g8JKwdLlmZx2ollDiHtqvUh9393mml02xqNZBGPZ1wHjtL8a9HKx83qIcicdvvwyka8nrJ6kNWUY9DBkFNYZDMg7qu6kbtrlDrehQ6hiNqo0PPCCu9TUmZYmUV1KAPcwZdGy5pAaWrMcapeeQm/Q9j21ZQfG8Jdrsf8lfbTc2vvenkPkRog/wEQqqtTuWHEbUeLK1tzoOR5Yz2xKOjcDKLlvxgJatAsmVZVht+1PjWm02SXdYKsdWHsw+Z7nl62Mvir/oZtjqyuC84ud85ab1s/FA+cTGwYit4dq/QJg3ARI1ZjcmE64bf3L6oDNCStSM7L0prWfKsk/smxnbcXndvwJtX5IbRtZ64NVIKcofl+DEYS84xo4muTGhL/KFE5bnc2OzaONtO/h6W2xtGiMpNDsOLEb2Zj8OQJecHo+7jKBSrGsSvx6+3Rs1E7w/tpJdGF7M9WiXasHLMVrweQ6rX5W8ubALhhyqLCSfD+Ji8UWDg7x3H2UpolPLEKTiwj8jbG1ZwGh05RDj5gSgW+cYxQFj3mfDo5H387C+cr9JETjJdmMUNmgRys6eh/P8BPCrxDIw6Cwk0xmlcQfutNsS4ewuEnBlFNWnDahKWUjIqJ2+a6mLmGCg3jNB2r3U4q+pO9Og5KUo7IKKJjHdo1ktn8xm8eiiMKXY7sznzzSKEztWjHgu9/vBxJ60AgR7P7deTcOWesJSPD7i7fXizCDEa9h1GvULr8eeUYjeLKrIYZKOu/UUbeuM4iLm7i3+jCLFiFcXySxi4348jxw7EbE7QThx63oitCpU4abZFGPqv3RB2hKHHHyXEIvRBIgCa7cgm/sn9JZGQolhTj0Kqbr5bkg5+qRMGmdEXhBySXT7JiDXyt2acDvPvtKEw1xDWZrPzpzHOfv+aAhw7Oql6hEv6aFkq8aVyNCYsLxD6I49RzvNwfu1Ahx21c/a4t8DD4TDC2ajb/XO2xzrL508bZfenZyPxGZyGhBOJyQerVE20fE4l58KaE3LKb69ENOQUAag7gU292HmcULHOd40t1R3vvuqI9EWxWv0qKXiGNhUX+edmJGAdB5PYODAf8qHvp6yNmHC7jWaEhBItPwLCagDBXgtiOuIMKuRRf2i3t/XCFlavjN1tIFSia+p5ISdsUuqUFeXndlWM8hMpeW7g+5VsX9KG86fuxoS1zF86WBu/p6AdxiBxrl97j7ehIJwidesfvmhDdeyxiexpE4d7snha088VmPe4foZ618vD7S+P9zmTiNbF921Yqw+AiBnvMOrDh3kX0T1hVuQbIjmG1EP8EWePMeGWqnTrmY8uRg1KeKF4memNwdF6gzg6jN+ERb6SDExxJzVe/+lN8J5Lbe6/jHcrXby6JsLS0ocktJsRdkXaJV+hskY43R2gij63pRBBRN16vQ69GiDhr2E9U7esbd2ZukrUbkduNiqaobwTCXd7ypjZsUQxfHs/U69/HIor4sJROILPuHHXRYTva8wBJT5Zrej1MHbpRs5dbENLlBnpb6yeD21ZrS8SonqltrfrfGpZNjSn2+obu07n3bluTF13EAQ7KjoLiad1wVHZitVnRhO6R9TapiWjNOmIBzY0+sH0sEj29oQdWpMQfajNq/S4fPR4SDoXWBrRiLOjZ4To1BSzH+W84TNyHi0QokxT9pwq8VguHvRMlhyzpN1yY8t1xyXz2EJ5fWJOxSoz/Hzs/adn2eqJo5f00PDMWg/yF9MYnZcMSMlenaw3eacol/78wY9w7d+t1gUufTFq9WZiEOaEdd8LGTu9grDbhIE0J0Ro2PT02tHVCK4kRAR1rSD5xas3kMZUgXCn4HUsNA650Xrw5RmqO0G+tUWlUsWKPZJx+7kPgbO25sPwen6YRJVgHbzzaIWABgRDRcxiaO0Hbeie74aStP2GSITCX/eEg12u9VT3rKnr1y462GXkJHKHn50Fwr8KBBzVog4gaOjZdtTh4jGUeYN623Wru+2E/nrl49ncLr8j9A/t1UJCCPComMVI1iPmhPYWoyTkPpfk7aFyT2gdO8Y/xcTqCeG3XevYc95HSlapO8y4I+w4pPbhwXd0e71DsDzlbT0hZN4lnNxADv36moSl+fQoM/NxGvwdiTnfjp48lLaxSAj2RJqIxX3whn+DPZkRYtTVKDkvggLG/Hp3RPSxMKrtJpkTwqB1INjAsadSsqoKDtJG6rBx8LbPSELI/Q/Qixu8IAjXCAeyOXNGSMh5eZV3QkBVHsUFUZydLhKCExjFPZ5L0OEWCUNCHcM0d0uO/upDVyN6DjCEP6zeEU4ZLQ1mDw7pjcfjLsKNTxqVTYMwIyZ0RqLHNCACrqN1Yrp7Qk4OVnwP7jkkLmrTpw8J1VyJxAsyEBndjUOIU0OJ3gb9fgA/o6WEltKAXOsiigPGqPhKLtRRIzQ91t/JHxdmhOBBBGHhhwlpeLZS20NQcWJKgpALu7FIiD4ki4rOGDr7PWG5ycxc22q3rXK7nS0HRDxTGtttjdy1oV3WQuL04oi7XvNCSFsuPF3rgZevyPpPIiT91UqWlKw1K2VgTjKrPyfEkDeReDIynq65szRRUdfj9KH79gpIKyb5x5l4zJbJ7yyN4k6rRL/NQPI7/Muj5k7WOvecIrR09F73LgQhGQkb+hRC83S18RuHkLN+HXQfECr4SrDPQvJ7b9GCjHjaHfb6pd2iigaQh3bO2o2mc0+I0c17bxL6Fwc7TY8VtIwNMV1hu+xGeTLR54QQ0z6J8MOq9yhX9PnIHe3HhM6MENnvRB1HtRJPhMBhPLY0KOrIRK+NQseZHELEHRRYoXYbGly6s6U4m72ceDT0KIQtofcvN+tWwMacTz/7jOqfEkvzpDZkEtPqKyQVEETbmdq8dpZKmZhwryrvgreAqDp6bZqm14pvISmaslE6F8E07haJ6cmerOVFlFp/L3sFUx+9Nl/tQNS2ZwaWiOB7AZMdxzEcfyCG99mt6ZivTK25a2plJb9XGn1UXNyomnxdfxgTLmR73yHE6KQ696C0JByikhmP347/hsTcRfbg7du3f8fzwu4AjP44b8Xvag+KQXA8rbu2qNzs5raD44P66fhtw0WX4/EpNDTYpjIc9Cb4tJNRRAFc9mYcvDkeH/be7rz904bvyLXhzfvwmevdSn1HaIDV+H4vhWsNydE8FQl3xeJTNlkrFP/ZyTWwxSyjHWdzYiveUNvltngBGhoA2t02jtP4eOJSHARJlY2tcrfbjh/FKFJCF45CcLAt5qzgZfFNNlyg9QoAZ4ScmRVrpV6Ktoz53TScyieuLda3k/RWgXO0xfxDvK0s/hvvFJs4hox3J7/jd9jzXfEHYWW+Lz4KNuz4O+JvUOy7T1yPkO6OV0nuweKP7h+1wHTI7Nb4/2P78Sm0uy9Z+IgVGee2lJYOVpmCUtAlvy9+Aofozi78bxBaLTydEzKydDn7a8IWW2hD1uxlHtNhffn++jf2r6f6zRqEkCr8sUrVBMat+6JEsTqjgUSd0Ew1/27zSappte9+UM2/XgHwntBvrOZHB/c3m4j+SgjxasGIeLoo+NL94DzZSlTwyDI5b87p0hfm4pz1m0Tnjx4kycU1CLkOCc8qbRhPxiwQUs68fvmsKVZmKKnm2gPYiBeA4ZfT/HcgJlHFdH+yl8UyezfbDvwWZWPiJ17YiSU+Rfz2RsNDn9H7N9GvxKl3sQYhI7XMKocj++CecO4V/RtwIWJsMu0juioQUe5GCOWE9tRtIJRE+VRyluKR/HA5W4dvyITyhEp8O7we44o6TlEByJv1Vg3YQgAh1KfLSsqZV1xrHGqrzX7gXOnLbwrNHM5MRKyqF9FNTSIAxQiE1x5vuJ8gn+JeCPKkuIV0EkIS6/uccfGsxZCKCiXmiPJUeE20DVyckEmaD5eGwJ4JYC8tXV2PkJPmioRXxpffRNioHF04ooi2gaaG7h+16oe5gDijfBv3cjU93D49PBx0CMTQWydHjcxW4STfhFePPuUzmdybkEqkOW6cZVpFykgzPx7/p1H081twEbTrVuasMdaWPsFiPUK6IiF2r+SvCKmTR/lQCiHDLDd1rYGiTNcdXpf6Z252eFgzcpFbz6jRgIZ7+6qbzdaNfasD4fawHe1HqBvoheAMlT/cYPeU6tuu5bpooLldXx/1kJXZV1Gv9hMI+YqEavGrXkohR4rKt4RBhjkIgTYTaM0tt6zx5qFa1OSO1a5oWqerXhV262hYDI5LCSHqveejOsp5pUv0h+bXrqzySN627Mboc/+1e+YXtlDmPfWDthsseyTXL2pDSEy/IgRD0cM7hl7rWn1ZG6rNV6bx6hKNTdJzP5lGC53uyeara/UDA8K3Jc+pJoTWe5NXp2hAjK18bdcsTdpWIG+r7f/qunMLhOHn09GuZzhnqLjstuQ1CGODvSJhO3C+/CYChqKC9g1j7PZY6XMU9S57jXdDpVWa9NTAq2XwxwYImu/1Xl29MCfSrJdmapx4YzTQWdXvnLQyN25ZEN7UJh4fuXVfN8LtvwcfbixUXHZjwOqEiVtb0Za2a8vK1fnrG+vYa7jFqnGhRpnDTA90UvXBW1S1unvWO+zB/xqvX+1HF55E5H3rOCFk8tiFNjzqulE3cxm1BWG3JgwOtKF+nkFuuf4BCJ/WS2NCL5mQ+K5ult9zAHH74E1Un1BvO+qOpMnE15rgxaANq1rG3SnwCYcozNtbTjgq24PjWz8s//kmIQTTDm1YOFQax8HrvX33KYQIeilz5Dd/36z25NGbvaWETtPqtvBUF3ecooppmKV3UcUEjx/s6X+ghlMqvZq2W9z8kpAKQqcDVCVzr2iVY8LXMeGZr7XdpiG/alr4SYQnpk47rfaqkzuH5lJC5gygQ43Ae4ul+Vz/uIW673W/gXs7flB2exdBznLHjlGPPsNVkOtWpxRY+68hPINxSEZt9TQIcm0UfRLjUPNCb+R+9GkXtfrBTjfrVp5gadycf52xVl8HaJnLxqFEvSBSBw4ElcQ/KbuWFdWLBRJOI3U4Mv+qW6rllrdCvdSzOnCyZiY6lvttiDyJ8dYdMPmk7Vp/DlsZ98r8FJ1phHnNCMZhpeuq7WGmpea/Mm9rtGGm7sZTLSsSZpbe4AxBqH9x1EyCrupo539bxZonKnE7VxUNMo7i1v92bmXC9c5RTRx+VKwxrXjMIF5rXvUpcYKdg+m5M9o5d7SrIx/iU//qmHJnND74u8O1nc/f8PirnDHkygJvZUJ1izAuIkwe/yT/QnhMQ0NOMgBGQ9OUjTgp4FVDBmhedWS5IF5zdA5BNoVjKTeqIm3gsqgsd4ySqYc6HMQcJ844DAcO0WWzJIdie/Hb4i0R+q7WhmtKKW8bhvxrVVrtMLP01y8ARAruTqcnWxuhXOsXAIoJIPXHlH3CAV+/JPYgdTNunU6VKlWqVKlSpUqVKlWqVKlSpUqVKlWqVKlSpUqVKlWqVKlSpUqVKlWqVKlSpUqVKlWqVKlSpUqV6pfq/wAZ+mmMNrXW3AAAAABJRU5ErkJggg==" style="width: 100%; height: auto;" />
-      </template>
-      <template #title> MediCan </template>
-      <template #subtitle> &#11088; &#11088; </template>
-      <template #content>
-        <p>
-          Confía en nuestros médicos veterinarios y groomers dedicados, quienes están comprometidos en brindar un servicio excepcional para el cuidado y la felicidad de tu querida mascota. Siempre a tu disposición
-          <h4>📍 Av. los Fresnos 1205, La Molina 15024</h4>
-          <h4>&#128222; 012750806</h4>
-        </p>
-      </template>
-      <template #footer>
-
-        <pv-button icon="pi pi-check" label="Call" severity="success" style="margin-left: 1.3em"/>
-        <pv-button icon="pi pi-check" label="Share" style="margin-left: 1.3em" />
-
-        <pv-button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 1.3em" />
-      </template>
-    </pv-card>
+      <swiper-slide v-for="card in cards" :key="card.id">
+        <pv-card class="card" >
+          <template #header>
+            <img :src="card.imageUrl" alt="Card Image" style="width: 30%; height: auto;"/>
+          </template>
+          <template #title> <h2>{{ card.title }}</h2></template>
+          <template #subtitle>&#11088; &#11088; &#11088; &#11088;</template>
+          <template #content>
+            <p>{{ card.description }}</p>
+            <p><strong>📍 Dirección:</strong> {{ card.address }}</p>
+            <p><strong>&#128222; Teléfono:</strong> {{ card.phoneNumber }}</p>
+          </template>
+          <template #footer>
+            <pv-button icon="pi pi-check" label="Call" severity="success" style="margin-left: 1.3em"/>
+            <pv-button icon="pi pi-check" label="Share" style="margin-left: 1.3em" />
+            <pv-button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 1.3em" />
+          </template>
+        </pv-card>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
-<style>
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 60px;
-  max-width: 800px;
-  margin: 0 auto; /* Centrar el contenedor en la página */
-  padding: 20px;
-}
-</style>
-<script setup>
+
+<script >
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import {Navigation} from "swiper/modules";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+export default {
+
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    return {
+      modules: [Navigation],
+    };
+  },
+  data() {
+    return {
+      cards: [
+        {
+          id: 1,
+          title: 'Pecas Derm',
+          subtitle: '&#11088; &#11088; &#11088; &#11088',
+          description: 'Tu clínica veterinaria especializada en dermatología animal. Nuestros expertos cuidan la piel y pelaje de tus mascotas con pasión y precisión. Garantizamos su salud y confort en cada visita.\n',
+          address: 'Plaza San José, 72190 Puebla, Pue., México',
+          phoneNumber: '012740159',
+          imageUrl: 'https://www.simbiotia.com/wp-content/uploads/diseno-de-clinicas-veterinarias.jpg'
+        },
+        {
+          id: 2,
+          title: 'Hemvet',
+          subtitle: 'Subtitle 2',
+          description: 'Tu clínica veterinaria de confianza. Nos dedicamos a la salud y el bienestar de tus mascotas. Nuestros veterinarios altamente calificados están aquí para cuidar y proteger a tus fieles amigos\n' ,
+          address: 'Av. Villa María 749, Villa María del Triunfo 15809',
+          phoneNumber: '012811046',
+          imageUrl: 'https://images.pexels.com/photos/5731866/pexels-photo-5731866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        },
+        {
+          id: 3,
+          title: ' MediCan',
+          subtitle: 'Subtitle 3',
+          description: ' Confía en nuestros médicos veterinarios y groomers dedicados, quienes están comprometidos en brindar un servicio excepcional para el cuidado y la felicidad de tu querida mascota. Siempre a tu disposición\n' ,
+          address: 'Av. los Fresnos 1205, La Molina 15024',
+          phoneNumber: ' 012750806',
+          imageUrl: 'https://medios.clinicaveterinariamadrid.es/logo_web_cvmedican.svg',
+        }]
+    };
+  },
+};
 </script>
+
+
+<style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.card {
+  display: grid;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+
+}
+
+/*.swiper-slide {
+  text-align: center;
+  background: #fff;
+
+  /* Center slide text vertically
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}*/
+</style>

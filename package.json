@@ -12,6 +12,7 @@
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primevue": "^3.26.1",
+    "swiper": "^11.0.4",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
