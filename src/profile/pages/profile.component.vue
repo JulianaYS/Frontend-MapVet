@@ -1,6 +1,3 @@
-<script setup>
-
-</script>
 
 <template>
   <div class="profile-container">
@@ -38,6 +35,41 @@
   </div>
 
 </template>
+
+<script >
+export default {
+  data() {
+    return {
+      user: {
+        name: 'Berta Palomino',
+        email: 'berta.palomino@gmail.com',
+        gender: 'Femenino',
+        birthDate: '15/10/1992',
+        photo: 'https://i.pinimg.com/564x/9e/60/d6/9e60d6c2edb408fa57049b183255e936.jpg', // Reemplaza con la URL real de la foto
+      }
+    };
+  },
+  mounted() {
+    // Carga los datos de la API
+    this.cargarDatos();
+  },
+  methods: {
+    cargarDatos() {
+      fetch('  ')//cambiar
+          .then((res) => res.json())
+          .then((data) => {
+            this.user = data;
+          })
+          .catch((error) => {
+            console.error('Error al cargar los datos:', error);
+          });
+    },
+
+  }
+};
+
+</script>
+
 
 <style scoped>
 
