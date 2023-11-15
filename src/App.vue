@@ -12,7 +12,8 @@ export default {
         { label:'Store', to:'/store'},
         { label: "Faq", to: "/faq" },
         { label: 'Register', to: '/register'},
-        { label: 'Login', to: '/login'}
+        { label: 'Login', to: '/login'},
+        { label: 'Profile', to: '/profile'}
       ],
     };
   },

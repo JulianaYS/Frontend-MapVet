@@ -56,6 +56,11 @@ const router = createRouter({
       path: "/petprofile",
       name: "petprofile",
       component: () => import("../petprofile/pages/petprofile.component.vue"),
+    },
+    {
+      path:"/profile",
+      name: "profile",
+      component: () => import("../profile/pages/profile.component.vue")
     }
   ]
 })
