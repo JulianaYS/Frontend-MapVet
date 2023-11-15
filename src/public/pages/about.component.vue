@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <swiper>
+    <swiper :navigation="true" :modules="modules" class="mySwiper">
 
+      <swiper-slide v-for="card in cards" :key="card.id">
         <pv-card class="card" >
           <template #header>
             <img :src="card.imageUrl" alt="Card Image" style="width: 30%; height: auto;"/>
@@ -19,16 +20,30 @@
             <pv-button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 1.3em" />
           </template>
         </pv-card>
-
+      </swiper-slide>
     </swiper>
   </div>
 </template>
 
 
 <script >
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import {Navigation} from "swiper/modules";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export default {
 
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    return {
+      modules: [Navigation],
+    };
+  },
   data() {
     return {
       cards: [
@@ -62,7 +77,6 @@ export default {
     };
   },
 };
-
 </script>
 
 
