@@ -8,7 +8,7 @@ export default {
       items: [
         { label: "Profile", to: "/petprofile" },
         { label: "Recommendations", to: "/about" },
-        { label: 'Appointments', to: '/tutorials' },
+        { label: 'Appointments', to: '/appointment' },
         { label:'Store', to:'/store'},
         { label: "Faq", to: "/faq" },
         { label: 'Register', to: '/register'},
