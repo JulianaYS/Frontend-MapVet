@@ -7,6 +7,7 @@ export default {
       drawer: false,
       items: [
         { label: "Profile", to: "/petprofile" },
+        { label: "Map", to: "/map" },
         { label: "Recommendations", to: "/about" },
         { label: 'Appointments', to: '/appointment' },
         { label:'Store', to:'/store'},
