@@ -8,7 +8,7 @@ const veterinaries = ref([
     rating: '⭐️⭐️⭐️⭐️⭐️',
     address: '📍 Av. los Fresnos 1205, La Molina 15024',
     phone: '☎️ 012750806',
-    image: 'img/vt1.png',
+    image: 'https://i.ibb.co/GnkdJBM/vt1.jpg"',
     link: 'infoveterinary.html'
   },
   {
@@ -17,7 +17,7 @@ const veterinaries = ref([
     rating: '⭐️⭐️⭐️⭐️',
     address: '📍 Plaza San José, 72190 Puebla, Pue., México',
     phone: '☎️ 012740159',
-    image: 'img/vt2.png',
+    image: 'https://i.ibb.co/d5Zjk3n/vt2.png',
     link: 'infoveterinary.html'
   },
   {
@@ -26,7 +26,7 @@ const veterinaries = ref([
     rating: '⭐️⭐️⭐️⭐️',
     address: '📍 Av. Villa María 749, Villa María del Triunfo 15809',
     phone: '☎️ 012811046',
-    image: 'img/vt3.png',
+    image: 'https://i.ibb.co/qDPHQgW/vt3.png',
     link: 'infoveterinary.html'
   }
 ]);
