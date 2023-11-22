@@ -3,8 +3,6 @@
     <h1>Pet Profile</h1>
   </div>
 
-
-
   <section class="PetProfile">
     <div class="cardProfile">
       <div v-for="p in pets" :key="p.id" class="product-box">
@@ -37,36 +35,16 @@
     </div>
   </section>
 
-  <button @click="mostrarFormulario = true" v-if="!mostrarFormulario">Agregar Mascota</button>
-  <form v-if="mostrarFormulario" @submit.prevent="agregarMascota">
-    <div>
-      <label for="type">Animal:</label>
-      <input type="text" id="type" v-model="newPet.type" required>
-    </div>
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" v-model="newPet.name" required>
-    </div>
-    <div>
-      <label for="breed">Breed:</label>
-      <input type="text" id="breed" v-model="newPet.breed" required>
-    </div>
-    <div>
-      <label for="weight">Weight:</label>
-      <input type="text" id="weight" v-model="newPet.weight" required>
-    </div>
-    <div>
-      <label for="photoUrl">Photo URL:</label>
-      <input type="text" id="photoUrl" v-model="newPet.photoUrl" required>
-    </div>
-    <button type="submit">Agregar Mascota</button>
-  </form>
+  <router-link to="/create-petprofile">
+  <pv-button label="Added Pet" class="create-btn"></pv-button>
+  </router-link>
 
 </template>
 
 <script>
 
 export default {
+
   data(){
     return {
       pets:[],
@@ -175,4 +153,22 @@ export default {
   border-radius: 50%;
   object-fit: cover;
 }
+
+.create-btn {
+  font-family: 'Inria Sans', sans-serif;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 1cm auto 1cm;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #31b4a7;
+  color: #fff;
+
+}
+
 </style>
