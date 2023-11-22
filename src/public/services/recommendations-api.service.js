@@ -1,7 +1,8 @@
 import publicHttpCommon from "@/public/services/public-http-common";
 
-export class MapApiService{
+export class RecommendationsApiService{
     getAll(){
         return publicHttpCommon.get('/cards');
     }
+
 }

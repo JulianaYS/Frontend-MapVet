@@ -1,37 +1,27 @@
-<script setup>
-import { ref } from 'vue';
+<script>
+import {MapApiService} from "@/public/services/map-api.service";
 
-const veterinaries = ref([
-  {
-    id: 1,
-    name: 'Pecas Derm',
-    rating: '⭐️⭐️⭐️⭐️⭐️',
-    address: '📍 Av. los Fresnos 1205, La Molina 15024',
-    phone: '☎️ 012750806',
-    image: 'https://i.ibb.co/GnkdJBM/vt1.jpg"',
-    link: 'infoveterinary.html'
+export default {
+  name:"maps-view",
+  data(){
+    return{
+      cards:[],
+      mapsService: null,
+      googleMapEmbedURL: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15620.173868197724!2d-77.11399785!3d-11.83222965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1686435004255!5m2!1ses-419!2spe"
+    };
   },
-  {
-    id: 2,
-    name: 'Hemvet',
-    rating: '⭐️⭐️⭐️⭐️',
-    address: '📍 Plaza San José, 72190 Puebla, Pue., México',
-    phone: '☎️ 012740159',
-    image: 'https://i.ibb.co/d5Zjk3n/vt2.png',
-    link: 'infoveterinary.html'
-  },
-  {
-    id: 3,
-    name: 'MediCan',
-    rating: '⭐️⭐️⭐️⭐️',
-    address: '📍 Av. Villa María 749, Villa María del Triunfo 15809',
-    phone: '☎️ 012811046',
-    image: 'https://i.ibb.co/qDPHQgW/vt3.png',
-    link: 'infoveterinary.html'
+  created(){
+    this.mapsService = new MapApiService();
+    this.mapsService.getAll()
+        .then(response => {
+          this.cards = response.data;
+          console.log(this.cards);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
   }
-]);
-
-const googleMapEmbedURL = 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15620.173868197724!2d-77.11399785!3d-11.83222965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1686435004255!5m2!1ses-419!2spe';
+}
 
 </script>
 
@@ -49,15 +39,15 @@ const googleMapEmbedURL = 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1
 
   <div class="content">
     <div class="vetcards">
-      <div v-for="vet in veterinaries" :key="vet.id" class="veterinary">
+      <div v-for="card in cards" :key="card.id" class="veterinary">
         <div class="info">
-          <h1>{{ vet.name }}</h1>
-          <h2>{{ vet.rating }}</h2>
-          <h2>{{ vet.address }}</h2>
-          <h2>{{ vet.phone }}</h2>
+          <h1>{{ card.title }}</h1>
+          <h2>{{ card.rating }}</h2>
+          <h2>{{ card.address }}</h2>
+          <h2>{{ card.phoneNumber }}</h2>
         </div>
         <pv-button>
-          <a :href="vet.link"><img :src="vet.image" alt="veterinarylocal" class="veterinary"></a>
+          <a><img :src="card.imageUrl" alt="veterinarylocal" class="veterinary"></a>
         </pv-button>
       </div>
     </div>
@@ -82,39 +72,13 @@ html {
   scroll-behavior: smooth;
 
 }
-/*Header*/
-.Header{
-  flex:0
-}
-.headerContent{
-  padding: 10px;
-}
-.logo {
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  height: 70px;
-  width: 80px;
-}
-.logo2 {
-  float: right;
-  margin-left: 10px;
-  margin-right: 10px;
-  height: 70px;
-  width: 70px;
-}
+
 .headerContent h1{
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
   font-size: 40px;
 }
 
-/*NAVBAR*/
-.navbar{
-  width: 70%;
-  margin-left: auto ;
-  margin-right: auto;
-}
 nav {
   padding: 10px;
   height: 80px;
@@ -122,9 +86,7 @@ nav {
   background: rgba(49, 180, 167, 1);
 
 }
-.navbar-options{
-  padding: 25px;
-}
+
 nav ul {
   list-style-type: none;
   text-align: center;
