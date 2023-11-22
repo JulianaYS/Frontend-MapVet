@@ -27,6 +27,14 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
+      component: () => import("../appointment/pages/view-appoinments.component.vue"),
+    },
+    {
+      path: "/create-appointment",
+      name: "create-appointment",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
       component: () => import("../appointment/pages/create-appointment.component.vue"),
     },
     {
