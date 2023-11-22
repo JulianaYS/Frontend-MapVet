@@ -11,6 +11,8 @@
         <img :src="p.photoUrl" alt="pet" class="petImg">
         <div class="petInfo">
         <div class="attributes">
+          <h2>ID:</h2>
+          <br>
           <h2>Animal:</h2>
           <br>
           <h2>Name:</h2>
@@ -20,6 +22,8 @@
           <h2>Weight:</h2>
         </div>
         <div class="data">
+          <h2>{{p.id}}</h2>
+          <br>
           <h2>{{p.type}}</h2>
           <br>
           <h2>{{p.name}}</h2>
@@ -67,6 +71,7 @@ export default {
     return {
       pets:[],
       newPet: {
+        id: '',
         type: '',
         name: '',
         breed: '',
