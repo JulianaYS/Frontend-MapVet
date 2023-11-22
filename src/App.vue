@@ -132,7 +132,7 @@ export default {
     return {
       drawer: false,
       items: [
-        { label: "Profile", to: "/petprofile" },
+        { label: "PetProfile", to: "/petprofile" },
         { label: "Map", to: "/map" },
         { label: "Recommendations", to: "/about" },
         { label: "Appointments", to: "/appointment" },

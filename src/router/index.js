@@ -66,6 +66,11 @@ const router = createRouter({
       component: () => import("../petprofile/pages/petprofile.component.vue"),
     },
     {
+      path: "/create-petprofile",
+      name: "create-petprofile",
+      component: () => import("../petprofile/pages/create-petprofile.component.vue"),
+    },
+    {
       path:"/profile",
       name: "profile",
       component: () => import("../profile/pages/profile.component.vue")
