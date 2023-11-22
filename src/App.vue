@@ -103,6 +103,19 @@
                   @click="navigate"
               >Store</pv-button>
             </router-link>
+            <router-link
+                v-if="showAppointmentLink"
+                to="/appointment"
+                custom
+                v-slot="{ navigate, href }"
+            >
+              <pv-button
+                  class="p-button-text text-white header-link-home"
+                  :href="href"
+                  @click="navigate"
+              >Appointment</pv-button>
+            </router-link>
+
           </div>
         </template>
       </pv-toolbar>
@@ -133,27 +146,30 @@ export default {
   },
   computed: {
     showHeader() {
-      const allowedRoutes = ["/petprofile", "/map", "/home", "/about","/store","/faq","/profile"];
+      const allowedRoutes = ["/petprofile", "/map", "/home", "/about","/store","/faq","/profile", "/appointment"];
       return allowedRoutes.includes(this.$route.path);
     },
     showMapLink() {
-      return this.$route.path === "/petprofile" || "/about" || "/store" || "/faq" || "/profile";
+      return this.$route.path === "/petprofile" || "/about" || "/store" || "/faq" || "/profile"|| "/appointment";
     },
     showStoreLink() {
-      return this.$route.path === "/petprofile" || "/about" || "/map" || "/faq" || "/profile";
+      return this.$route.path === "/petprofile" || "/about" || "/map" || "/faq" || "/profile"|| "/appointment";
     },
     showFaqLink() {
-      return this.$route.path === "/petprofile" || "/about" || "/map" || "/store" || "/profile";
+      return this.$route.path === "/petprofile" || "/about" || "/map" || "/store" || "/profile"|| "/appointment";
     },
     showPetProfileLink() {
-      return this.$route.path === "/faq" || "/about" || "/map" || "/store" || "/profile";
+      return this.$route.path === "/faq" || "/about" || "/map" || "/store" || "/profile"|| "/appointment";
     },
     showRecommendationsLink() {
-      return this.$route.path === "/faq" || "/petprofile" || "/map" || "/store" || "/profile";
+      return this.$route.path === "/faq" || "/petprofile" || "/map" || "/store" || "/profile"|| "/appointment";
     },
     showUserProfileLink() {
-      return this.$route.path === "/faq" || "/petprofile" || "/map" || "/store" || "/about";
+      return this.$route.path === "/faq" || "/petprofile" || "/map" || "/store" || "/about"|| "/appointment";
     },
+    showAppointmentLink(){
+      return this.$route.path ==="/faq" || "/petprofile" || "/map" || "/store" || "/about" || "/appointment";
+    }
   },
 };
 </script>
