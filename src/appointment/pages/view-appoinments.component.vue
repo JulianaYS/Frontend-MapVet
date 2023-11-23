@@ -53,30 +53,30 @@ export default {
       appointments: [
         {
           id: 1,
-          veterinaryName: 'Veterinary 1',
-          petName: 'Pet 1',
-          description: 'Description 1',
+          veterinaryName: 'Petzy',
+          petName: 'Blanqui',
+          description: 'Lavado mensual',
           status: 'Scheduled'
         },
         {
           id: 1,
-          veterinaryName: 'Veterinary 1',
-          petName: 'Pet 1',
-          description: 'Description 1',
+          veterinaryName: 'Pet24',
+          petName: 'Black',
+          description: 'Análisis de sangre',
           status: 'Scheduled'
         },
         {
           id: 1,
-          veterinaryName: 'Veterinary 1',
-          petName: 'Pet 1',
-          description: 'Description 1',
+          veterinaryName: 'Petzy',
+          petName: 'Ninito',
+          description: 'Rayos X',
           status: 'Scheduled'
         },
         {
           id: 1,
-          veterinaryName: 'Veterinary 1',
-          petName: 'Pet 1',
-          description: 'Description 1',
+          veterinaryName: 'Vetzi',
+          petName: 'Saltarin',
+          description: 'Atencion prioritaria',
           status: 'Scheduled'
         },
 

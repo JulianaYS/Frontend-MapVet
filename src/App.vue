@@ -14,7 +14,7 @@
               src="https://upc-coders.github.io/MapVet-LandingPage-Final/assets/images/logo2.png"
               style="width: 10%; height: auto;"
           />
-          <h1>VetMap</h1>
+          <h1>VetCare</h1>
         </template>
         <template #end>
           <div class="flex-column">
@@ -44,7 +44,7 @@
                   :href="href"
                   @click="navigate"
               >
-                Profile
+                PetProfile
               </pv-button>
             </router-link>
             <router-link

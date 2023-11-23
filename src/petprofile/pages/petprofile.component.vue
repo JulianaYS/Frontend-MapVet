@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     cargarDatos() {
-      fetch('https://vetcareapi.azurewebsites.net/api/v1/pets')
+      fetch('http://localhost:5108/api/v1/pets')
           .then((res) => res.json())
           .then((data) => {
             this.pets = data;
@@ -76,7 +76,7 @@ export default {
     },
     agregarMascota() {
       // Realiza una solicitud POST al servidor JSON para agregar la nueva mascota
-      fetch('https://my-json-server.typicode.com/Yorusito/VetCareDB/pets', {
+      fetch('http://localhost:5108/api/v1/pets', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

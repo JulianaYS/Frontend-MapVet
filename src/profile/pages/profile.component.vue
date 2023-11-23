@@ -45,7 +45,7 @@ export default {
         email: 'berta.palomino@gmail.com',
         gender: 'Femenino',
         birthDate: '15/10/1992',
-        photo: 'https://i.pinimg.com/564x/9e/60/d6/9e60d6c2edb408fa57049b183255e936.jpg', // Reemplaza con la URL real de la foto
+        photo: 'https://www.ibercaja.es/public/img/particulares/productos/principal/cuenta-joven.jpg', // Reemplaza con la URL real de la foto
       }
     };
   },
