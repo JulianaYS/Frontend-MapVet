@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'http://localhost:5108/api/v1/',
+    baseURL: 'https://vetcareapi.azurewebsites.net/api/v1/',
     headers: { 'Content-type': 'application/json' }
 });
