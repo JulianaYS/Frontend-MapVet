@@ -12,12 +12,13 @@
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primevue": "^3.26.1",
+    "swiper": "^11.0.4",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
-    "vite": "^4.4.9",
+    "vite": "^4.5.0",
     "vite-plugin-gh-pages": "^0.4.1"
   }
 }

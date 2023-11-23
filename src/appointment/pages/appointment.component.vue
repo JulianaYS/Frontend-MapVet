@@ -79,11 +79,18 @@
             style="min-width: 16rem"
         ></pv-column>
         <pv-column
+            field="petId"
+            header="PetId"
+            :sortable="true"
+            style="min-width: 16rem"
+        ></pv-column>
+        <pv-column
             field="status"
             header="Status"
             :sortable="true"
             style="min-width: 12rem"
         >
+
           <template #body="slotProps">
             <pv-tag v-if="slotProps.data.status === 'Published'" severity="success">
               {{ slotProps.data.status }}
@@ -127,6 +134,22 @@
           <label for="title">Title</label>
           <small class="p-error" v-if="submitted && !tutorial.title">
             Title is required.
+          </small>
+        </span>
+      </div>
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text
+              type="text"
+              id="petId"
+              v-model.trim="tutorial.petId"
+              required="true"
+              autofocus
+              :class="{ 'p-invalid': submitted && !tutorial.petId }"
+          />
+          <label for="title">Pet</label>
+          <small class="p-error" v-if="submitted && !tutorial.petId">
+            Pet is required.
           </small>
         </span>
       </div>
@@ -297,6 +320,7 @@ export default {
         title: displayableTutorial.title,
         description: displayableTutorial.description,
         published: displayableTutorial.status.label === "Published",
+        petId: displayableTutorial.petId
       };
     },
     openNew() {

@@ -22,12 +22,20 @@ const router = createRouter({
       component: () => import('../public/pages/about.component.vue')
     },
     {
-      path: "/tutorials",
-      name: "tutorials",
+      path: "/appointment",
+      name: "appointment",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../appointment/pages/appointment.component.vue"),
+      component: () => import("../appointment/pages/view-appoinments.component.vue"),
+    },
+    {
+      path: "/create-appointment",
+      name: "create-appointment",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../appointment/pages/create-appointment.component.vue"),
     },
     {
       path: "/store",
@@ -56,6 +64,21 @@ const router = createRouter({
       path: "/petprofile",
       name: "petprofile",
       component: () => import("../petprofile/pages/petprofile.component.vue"),
+    },
+    {
+      path:"/profile",
+      name: "profile",
+      component: () => import("../profile/pages/profile.component.vue")
+    },
+    {
+      path:"/map",
+      name: "map",
+      component: () => import("../public/pages/map.component.vue")
+    },
+    {
+      path:"/newappointment",
+      name: "newappointment",
+      component: () => import("../appointment/pages/appointment.component.vue")
     }
   ]
 })
