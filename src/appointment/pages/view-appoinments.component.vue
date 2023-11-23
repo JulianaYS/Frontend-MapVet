@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/create-appointment">
+  <router-link to="/newappointment">
   <pv-button label="Create Appointment"  class="create-btn" >
   </pv-button>
   </router-link>
